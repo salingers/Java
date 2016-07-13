@@ -1,0 +1,72 @@
+import java.applet.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Music extends Applet
+{
+  AudioClip mus;
+  Button play,loop,stop;
+  Image bg;
+  String message="高師大音樂盒";
+
+ public void init()
+ {
+   mus=getAudioClip(getCodeBase(),"music.au");
+   play=new Button("play");
+   loop=new Button("loop");
+   stop=new Button("stop");
+   bg=getImage(getCodeBase(),"bg.jpg");
+   setLayout(new FlowLayout(FlowLayout.CENTER,20,50));
+   add(play);
+   add(stop);
+   add(loop);
+   play.addActionListener(new paction());
+   stop.addActionListener(new saction());
+   loop.addActionListener(new laction());
+ }
+
+ public void stop()
+  {
+	mus.stop();
+  }
+ 
+ public void paint(Graphics g)
+  {
+    g.drawImage(bg,0,0,this);
+    g.setColor(Color.black);
+    g.fillRect(20,15,110,25);
+    g.setColor(Color.green);
+    g.drawString(message,25,33);
+  }
+  
+ class paction implements ActionListener
+ {
+   public void actionPerformed(ActionEvent event)
+   {
+    mus.play();
+    message="單次播放";
+    repaint();
+   }
+ }
+
+ class laction implements ActionListener
+ {
+   public void actionPerformed(ActionEvent event)
+   {
+    mus.loop();
+    message="循環播放";
+    repaint();
+   }
+ }
+
+ class saction implements ActionListener
+ {
+   public void actionPerformed(ActionEvent event)
+   {
+    mus.stop();
+    message="停止播放";
+    repaint();
+   }
+ }
+
+}
