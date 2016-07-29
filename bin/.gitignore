@@ -1,15 +1,2 @@
-/Balls.class
-/ActiveObject/
-/AppendixB/
-/Balking/
-/Future/
 /GuardedSuspension/
-/Immutable/
-/Introduction1/
-/ProducerConsumer/
-/ReadWriteLock/
-/SingleThreadedExecution/
-/ThreadPerMessage/
-/ThreadSpecificStorage/
-/TwoPhaseTermination/
-/WorkerThread/
+/org/
