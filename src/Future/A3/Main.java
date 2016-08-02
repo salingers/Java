@@ -32,11 +32,14 @@ public class Main
 		try
 		{
 			System.out.println(Thread.currentThread().getName() + ": Saving to " + filename);
+			
 			FileOutputStream out = new FileOutputStream(filename);
+			
 			for (int i = 0; i < bytes.length; i++)
 			{
 				out.write(bytes[i]);
 			}
+			
 			out.close();
 		}
 		catch (IOException e)

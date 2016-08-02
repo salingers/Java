@@ -5,6 +5,7 @@ import java.beans.*;
 public class BoundTest extends Canvas
 {
 	private java.awt.Color showColor = Color.red;
+	
 	private transient PropertyChangeSupport propertyChangeListeners = new PropertyChangeSupport(this);
 
 	public BoundTest()
