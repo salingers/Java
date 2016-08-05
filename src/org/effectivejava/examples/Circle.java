@@ -1,4 +1,4 @@
-package org.effectivejava.examples.chapter04.Item20.hierarchy;
+package org.effectivejava.examples;
 
 class Circle extends Figure {
 	final double radius;

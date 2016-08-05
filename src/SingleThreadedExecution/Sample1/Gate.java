@@ -11,6 +11,7 @@ public class Gate
 		this.counter++;
 		this.name = name;
 		this.address = address;
+		
 		check();
 	}
 

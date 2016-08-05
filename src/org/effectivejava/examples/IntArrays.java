@@ -1,34 +1,43 @@
 // Concrete implementation built atop skeletal implementation - Page 95
-package org.effectivejava.examples.chapter04.item18;
+package org.effectivejava.examples;
 
 import java.util.AbstractList;
 import java.util.Collections;
 import java.util.List;
 
-public class IntArrays {
-	static List<Integer> intArrayAsList(final int[] a) {
+public class IntArrays
+{
+	static List<Integer> intArrayAsList(final int[] a)
+	{
 		if (a == null)
+		{
 			throw new NullPointerException();
+		}
 
-		return new AbstractList<Integer>() {
-			public Integer get(int i) {
+		return new AbstractList<Integer>()
+		{
+			public Integer get(int i)
+			{
 				return a[i]; // Autoboxing (Item 5)
 			}
 
 			@Override
-			public Integer set(int i, Integer val) {
+			public Integer set(int i, Integer val)
+			{
 				int oldVal = a[i];
 				a[i] = val; // Auto-unboxing
 				return oldVal; // Autoboxing
 			}
 
-			public int size() {
+			public int size()
+			{
 				return a.length;
 			}
 		};
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
 		int[] a = new int[10];
 		for (int i = 0; i < a.length; i++)
 			a[i] = i;

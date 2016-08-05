@@ -1,14 +1,16 @@
 // Doesn't creates unnecessary duplicate objects - page 21
-package org.effectivejava.examples.chapter02.item05.fastversion;
+package org.effectivejava.examples;
 
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
-class Person {
+class Person
+{
 	private final Date birthDate;
 
-	public Person(Date birthDate) {
+	public Person(Date birthDate)
+	{
 		// Defensive copy - see Item 39
 		this.birthDate = new Date(birthDate.getTime());
 	}
@@ -21,7 +23,8 @@ class Person {
 	private static final Date BOOM_START;
 	private static final Date BOOM_END;
 
-	static {
+	static
+	{
 		Calendar gmtCal = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
 		gmtCal.set(1946, Calendar.JANUARY, 1, 0, 0, 0);
 		BOOM_START = gmtCal.getTime();
@@ -29,8 +32,8 @@ class Person {
 		BOOM_END = gmtCal.getTime();
 	}
 
-	public boolean isBabyBoomer() {
-		return birthDate.compareTo(BOOM_START) >= 0
-				&& birthDate.compareTo(BOOM_END) < 0;
+	public boolean isBabyBoomer()
+	{
+		return birthDate.compareTo(BOOM_START) >= 0 && birthDate.compareTo(BOOM_END) < 0;
 	}
 }

@@ -1,11 +1,15 @@
 package org.effectivejava.examples.chapter04.item17;
 
-public class Super {
+public class Super
+{
 	// Broken - constructor invokes an overridable method
-	public Super() {
+	public Super()
+	{
 		overrideMe();
 	}
 
-	public void overrideMe() {
+	public void overrideMe()
+	{
+		
 	}
 }

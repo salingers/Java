@@ -1,16 +1,18 @@
 // Making PhoneNumber comparable - Pages 65-66
-package org.effectivejava.examples.chapter03.item12;
+package org.effectivejava.examples;
 
 import java.util.NavigableSet;
 import java.util.Random;
 import java.util.TreeSet;
 
-public final class PhoneNumber implements Cloneable, Comparable<PhoneNumber> {
+public final class PhoneNumber implements Cloneable, Comparable<PhoneNumber>
+{
 	private final short areaCode;
 	private final short prefix;
 	private final short lineNumber;
 
-	public PhoneNumber(int areaCode, int prefix, int lineNumber) {
+	public PhoneNumber(int areaCode, int prefix, int lineNumber)
+	{
 		rangeCheck(areaCode, 999, "area code");
 		rangeCheck(prefix, 999, "prefix");
 		rangeCheck(lineNumber, 9999, "line number");
@@ -19,24 +21,26 @@ public final class PhoneNumber implements Cloneable, Comparable<PhoneNumber> {
 		this.lineNumber = (short) lineNumber;
 	}
 
-	private static void rangeCheck(int arg, int max, String name) {
+	private static void rangeCheck(int arg, int max, String name)
+	{
 		if (arg < 0 || arg > max)
 			throw new IllegalArgumentException(name + ": " + arg);
 	}
 
 	@Override
-	public boolean equals(Object o) {
+	public boolean equals(Object o)
+	{
 		if (o == this)
 			return true;
 		if (!(o instanceof PhoneNumber))
 			return false;
 		PhoneNumber pn = (PhoneNumber) o;
-		return pn.lineNumber == lineNumber && pn.prefix == prefix
-				&& pn.areaCode == areaCode;
+		return pn.lineNumber == lineNumber && pn.prefix == prefix && pn.areaCode == areaCode;
 	}
 
 	@Override
-	public int hashCode() {
+	public int hashCode()
+	{
 		int result = 17;
 		result = 31 * result + areaCode;
 		result = 31 * result + prefix;
@@ -59,15 +63,20 @@ public final class PhoneNumber implements Cloneable, Comparable<PhoneNumber> {
 	 * after the area code from the first digit of the prefix.
 	 */
 	@Override
-	public String toString() {
+	public String toString()
+	{
 		return String.format("(%03d) %03d-%04d", areaCode, prefix, lineNumber);
 	}
 
 	@Override
-	public PhoneNumber clone() {
-		try {
+	public PhoneNumber clone()
+	{
+		try
+		{
 			return (PhoneNumber) super.clone();
-		} catch (CloneNotSupportedException e) {
+		}
+		catch (CloneNotSupportedException e)
+		{
 			throw new AssertionError(); // Can't happen
 		}
 	}
@@ -95,7 +104,8 @@ public final class PhoneNumber implements Cloneable, Comparable<PhoneNumber> {
 	// return 0; // All fields are equal
 	// }
 
-	public int compareTo(PhoneNumber pn) {
+	public int compareTo(PhoneNumber pn)
+	{
 		// Compare area codes
 		int areaCodeDiff = areaCode - pn.areaCode;
 		if (areaCodeDiff != 0)
@@ -110,7 +120,8 @@ public final class PhoneNumber implements Cloneable, Comparable<PhoneNumber> {
 		return lineNumber - pn.lineNumber;
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
 		NavigableSet<PhoneNumber> s = new TreeSet<PhoneNumber>();
 		for (int i = 0; i < 10; i++)
 			s.add(randomPhoneNumber());
@@ -119,8 +130,8 @@ public final class PhoneNumber implements Cloneable, Comparable<PhoneNumber> {
 
 	private static final Random rnd = new Random();
 
-	private static PhoneNumber randomPhoneNumber() {
-		return new PhoneNumber((short) rnd.nextInt(1000),
-				(short) rnd.nextInt(1000), (short) rnd.nextInt(10000));
+	private static PhoneNumber randomPhoneNumber()
+	{
+		return new PhoneNumber((short) rnd.nextInt(1000), (short) rnd.nextInt(1000), (short) rnd.nextInt(10000));
 	}
 }
