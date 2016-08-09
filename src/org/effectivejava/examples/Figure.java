@@ -1,8 +1,10 @@
 // Tagged class - vastly inferior to a class hierarchy!
 package org.effectivejava.examples;
 
-class Figure {
-	enum Shape {
+class Figure
+{
+	enum Shape
+	{
 		RECTANGLE, CIRCLE
 	};
 
@@ -17,20 +19,24 @@ class Figure {
 	double radius;
 
 	// Constructor for circle
-	Figure(double radius) {
+	Figure(double radius)
+	{
 		shape = Shape.CIRCLE;
 		this.radius = radius;
 	}
 
 	// Constructor for rectangle
-	Figure(double length, double width) {
+	Figure(double length, double width)
+	{
 		shape = Shape.RECTANGLE;
 		this.length = length;
 		this.width = width;
 	}
 
-	double area() {
-		switch (shape) {
+	double area()
+	{
+		switch (shape)
+		{
 		case RECTANGLE:
 			return length * width;
 		case CIRCLE:
