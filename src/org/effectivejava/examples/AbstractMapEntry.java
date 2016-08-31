@@ -21,9 +21,13 @@ public abstract class AbstractMapEntry<K, V> implements Map.Entry<K, V>
 	public boolean equals(Object o)
 	{
 		if (o == this)
+		{
 			return true;
+		}
 		if (!(o instanceof Map.Entry))
+		{
 			return false;
+		}
 		Map.Entry<?, ?> arg = (Map.Entry) o;
 		return equals(getKey(), arg.getKey()) && equals(getValue(), arg.getValue());
 	}

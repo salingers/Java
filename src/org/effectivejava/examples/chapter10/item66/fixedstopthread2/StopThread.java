@@ -16,7 +16,7 @@ public class StopThread
 	{
 		return stopRequested;
 	}
-	
+
 	public static void main(String[] args) throws InterruptedException
 	{
 		Thread backgroundThread = new Thread(new Runnable()
@@ -31,7 +31,7 @@ public class StopThread
 				}
 			}
 		});
-		
+
 		backgroundThread.start();
 
 		TimeUnit.SECONDS.sleep(1);
