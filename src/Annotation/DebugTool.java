@@ -1,4 +1,4 @@
-package cc.openhome;
+package Annotation;
 
 import static java.lang.System.out;
 import java.lang.annotation.Annotation;
@@ -9,16 +9,16 @@ public class DebugTool {
         Class<Other> c = Other.class;
         Method method = c.getMethod("doOther");
         if(method.isAnnotationPresent(Debug.class)) {
-            out.println("已設定 @Debug 標註");
+            out.println("撌脰身摰� @Debug 璅酉");
             showDebugAnnotation(method);
         } else {
-            out.println("沒有設定 @Debug 標註");
+            out.println("瘝�身摰� @Debug 璅酉");
         }
         showAllAnnotations(method);
     }
 
     private static void showDebugAnnotation(Method method) {
-        // 取得 @Debug 實例
+        // ���� @Debug 撖虫��
         Debug debug = method.getAnnotation(Debug.class);
         out.printf("value: %s%n", debug.value());
         out.printf("name : %s%n", debug.name());

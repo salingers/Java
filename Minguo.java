@@ -15,7 +15,6 @@ public class Minguo
 {
 	public static void main(String[] args)
 	{
-		// 今天
 		MinguoDate minguoDate = MinguoDate.now();
 		showTitle(minguoDate);
 		showDate(minguoDate);
@@ -23,9 +22,9 @@ public class Minguo
 
 	private static void showTitle(MinguoDate minguoDate)
 	{
-		out.printf("%n%s%n%n", minguoDate.format(ofPattern("民國 yyy 年 MM 月 dd 日 EE")));
+		out.printf("%n%s%n%n", minguoDate.format(ofPattern("瘞�� yyy 撟� MM ��� dd � EE")));
 		String[] weekDays =
-		{ "日", "一", "二", "三", "四", "五", "六" };
+		{ "�", "銝�", "鈭�", "銝�", "���", "鈭�", "�" };
 		for (String weekDay : weekDays)
 		{
 			out.printf("%s ", weekDay);
@@ -36,13 +35,13 @@ public class Minguo
 	private static void showDate(Calendar calendar)
 	{
 		Calendar cal = (Calendar) calendar.clone();
-		// 今天是本月第幾天
+		// 隞予����洵撟曉予
 		int dayOfMonth = cal.get(DAY_OF_MONTH);
-		// 將月曆設為本月第一天
+		// 撠��身����洵銝�憭�
 		cal.add(DAY_OF_MONTH, -dayOfMonth + 1);
-		// 日曆現在是星期的第幾天
+		// ���������洵撟曉予
 		int dayOfWeek = cal.get(DAY_OF_WEEK);
-		// 顯示星期描述
+		// 憿舐內����膩
 		out.printf("%" + (2 * (dayOfWeek + 1)) + "s", "");
 		for (int i = 1; i <= cal.getMaximum(DAY_OF_MONTH); i++, dayOfWeek++)
 		{
@@ -56,11 +55,11 @@ public class Minguo
 
 	private static void showDate(MinguoDate minguoDate)
 	{
-		// 今天是本月第幾天
+		// 隞予����洵撟曉予
 		int dayOfMonth = minguoDate.get(ChronoField.DAY_OF_MONTH);
-		// 取得本月第一天，計算出星期幾
+		// �����洵銝�憭抬������嗾
 		int dayOfWeek = minguoDate.plus(-dayOfMonth + 1, ChronoUnit.DAYS).get(ChronoField.DAY_OF_WEEK);
-		// dayOfWeek 是用來排版用的
+		// dayOfWeek ��靘�����
 		dayOfWeek++;
 		out.printf("%" + (2 * (dayOfWeek + 1)) + "s", "");
 		for (int i = 1; i <= minguoDate.lengthOfMonth(); i++, dayOfWeek++)

@@ -1,4 +1,4 @@
-package cc.openhome;
+package Annotation;
 
 import java.lang.annotation.*;
 

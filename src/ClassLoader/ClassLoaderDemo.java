@@ -1,4 +1,4 @@
-package cc.openhome;
+package ClassLoader;
 
 import static java.lang.System.out;
 import java.net.MalformedURLException;
@@ -11,8 +11,8 @@ public class ClassLoaderDemo
 	{
 		try
 		{
-			String path = args[0]; // 測試路徑
-			String clzName = args[1]; // 測試類別
+			String path = args[0]; // 皜祈岫頝臬��
+			String clzName = args[1]; // 皜祈岫憿
 
 			Class clz1 = loadClassFrom(path, clzName);
 			out.println(clz1);
@@ -20,19 +20,19 @@ public class ClassLoaderDemo
 			Class clz2 = loadClassFrom(path, clzName);
 			out.println(clz2);
 
-			out.printf("clz1 與 clz2 為%s實例", clz1 == clz2 ? "相同" : "不同");
+			out.printf("clz1 ��� clz2 �%s撖虫��", clz1 == clz2 ? "����" : "銝��");
 		}
 		catch (ArrayIndexOutOfBoundsException e)
 		{
-			out.println("沒有指定類別載入路徑與名稱");
+			out.println("瘝����頛頝臬���迂");
 		}
 		catch (MalformedURLException e)
 		{
-			out.println("載入路徑錯誤");
+			out.println("頛頝臬�隤�");
 		}
 		catch (ClassNotFoundException e)
 		{
-			out.println("找不到指定的類別");
+			out.println("�銝�����");
 		}
 	}
 

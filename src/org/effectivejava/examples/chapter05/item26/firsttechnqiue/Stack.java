@@ -3,7 +3,8 @@ package org.effectivejava.examples.chapter05.item26.firsttechnqiue;
 
 import java.util.Arrays;
 
-public class Stack<E> {
+public class Stack<E>
+{
 	private E[] elements;
 	private int size = 0;
 	private static final int DEFAULT_INITIAL_CAPACITY = 16;
@@ -12,16 +13,19 @@ public class Stack<E> {
 	// This is sufficient to ensure type safety, but the runtime
 	// type of the array won't be E[]; it will always be Object[]!
 	@SuppressWarnings("unchecked")
-	public Stack() {
+	public Stack()
+	{
 		elements = (E[]) new Object[DEFAULT_INITIAL_CAPACITY];
 	}
 
-	public void push(E e) {
+	public void push(E e)
+	{
 		ensureCapacity();
 		elements[size++] = e;
 	}
 
-	public E pop() {
+	public E pop()
+	{
 		if (size == 0)
 			throw new EmptyStackException();
 		E result = elements[--size];
@@ -29,17 +33,20 @@ public class Stack<E> {
 		return result;
 	}
 
-	public boolean isEmpty() {
+	public boolean isEmpty()
+	{
 		return size == 0;
 	}
 
-	private void ensureCapacity() {
+	private void ensureCapacity()
+	{
 		if (elements.length == size)
 			elements = Arrays.copyOf(elements, 2 * size + 1);
 	}
 
 	// Little program to exercise our generic Stack
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
 		Stack<String> stack = new Stack<String>();
 		for (String arg : args)
 			stack.push(arg);
