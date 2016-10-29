@@ -1,7 +1,8 @@
 package frank.java.chapter07.adapter;
 
 /**
- * 适配器测试范例
+ * ��瘚����
+ * 
  * @author <a href="mailto:gzyangfan@gmail.com">Frank</a>
  */
 public class AdapterTest {
