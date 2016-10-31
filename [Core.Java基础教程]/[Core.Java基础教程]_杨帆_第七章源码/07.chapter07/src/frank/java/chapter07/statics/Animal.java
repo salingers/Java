@@ -1,22 +1,22 @@
 package frank.java.chapter07.statics;
 
 public class Animal {
-	
-	static { // 静态代码块
-		System.out.println("Animal的静态代码块");
+
+	static { // ���誨����
+		System.out.println("Animal����誨����");
 	}
-	{ // 普通代码块
-		System.out.println("Animal的普通代码块");
+	{ // ��誨����
+		System.out.println("Animal���誨����");
 	}
-	
+
 	private String name;
-	
+
 	public Animal() {
-		System.out.println("Animal的默认构造器");
+		System.out.println("Animal���恕���");
 	}
-	
+
 	public Animal(String name) {
-		System.out.println("Animal的有参构造器");
+		System.out.println("Animal������");
 	}
 
 	public String getName() {
