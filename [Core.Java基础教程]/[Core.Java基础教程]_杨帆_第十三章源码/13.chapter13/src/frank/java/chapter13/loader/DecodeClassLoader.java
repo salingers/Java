@@ -13,40 +13,47 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 简单的自定义 ClassLoader 范例
+ * 蝞����摰�� ClassLoader ����
  * 
  * @author <a href="mailto:gzyangfan@gmail.com">Frank</a>
  */
-public class DecodeClassLoader extends URLClassLoader {
+public class DecodeClassLoader extends URLClassLoader
+{
 
-	public DecodeClassLoader(URL[] urls) {
+	public DecodeClassLoader(URL[] urls)
+	{
 		super(urls);
 	}
 
-	public DecodeClassLoader(URL[] urls, ClassLoader parent,
-			URLStreamHandlerFactory factory) {
+	public DecodeClassLoader(URL[] urls, ClassLoader parent, URLStreamHandlerFactory factory)
+	{
 		super(urls, parent, factory);
 	}
 
-	public DecodeClassLoader(URL[] urls, ClassLoader parent) {
+	public DecodeClassLoader(URL[] urls, ClassLoader parent)
+	{
 		super(urls, parent);
 	}
 
 	@Override
-	public Class<?> loadClass(String name) throws ClassNotFoundException {
+	public Class<?> loadClass(String name) throws ClassNotFoundException
+	{
 		if (!name.startsWith("frank"))
 			return super.loadClass(name);
-		try {
+		try
+		{
 			byte[] contents = loadClassData(name);
 			return defineClass(name, contents, 5, contents.length - 5);
-		} catch (Exception e) {
+		}
+		catch (Exception e)
+		{
 			e.printStackTrace();
 		}
 		return null;
 	}
 
-	private byte[] loadClassData(String name) throws IOException,
-			URISyntaxException {
+	private byte[] loadClassData(String name) throws IOException, URISyntaxException
+	{
 		String path = name.replace('.', '/') + ".class";
 		URL url = this.findResource(path);
 		URI uri = url.toURI();

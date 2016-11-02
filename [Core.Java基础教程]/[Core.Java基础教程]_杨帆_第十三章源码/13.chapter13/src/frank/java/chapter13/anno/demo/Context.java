@@ -1,16 +1,19 @@
 package frank.java.chapter13.anno.demo;
 
-public enum Context {
-	
+public enum Context
+{
+
 	INSTANCE;
-	
+
 	private ThreadLocal<Integer> permission = new ThreadLocal<Integer>();
-	
-	public void setCurrentPermission(int mask) {
+
+	public void setCurrentPermission(int mask)
+	{
 		permission.set(mask);
 	}
 
-	public int getCurrentPermission() {
+	public int getCurrentPermission()
+	{
 		return permission.get();
 	}
 

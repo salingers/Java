@@ -9,36 +9,41 @@ import java.io.IOException;
 import java.net.URL;
 import java.net.URLClassLoader;
 
-public class CustomClassLoaderTest {
+public class CustomClassLoaderTest
+{
 
 	@SuppressWarnings("unused")
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws Exception
+	{
 		encryptClass();
 		String path = System.getProperties().getProperty("user.dir");
 		String classname = "frank.java.chapter13.loader.Person";
 
-		try {
-			URLClassLoader loader = new URLClassLoader(new URL[] { new URL(
-					"file:/" + path + "/encrypt/") }, null);
+		try
+		{
+			URLClassLoader loader = new URLClassLoader(new URL[]
+			{ new URL("file:/" + path + "/encrypt/") }, null);
 			Class<?> clz = loader.loadClass(classname);
-		} catch (ClassFormatError e) {
-			System.out.println("无法直接加载加密过的类");
 		}
-		
-		DecodeClassLoader loader = new DecodeClassLoader(new URL[] { new URL(
-				"file:/" + path + "/encrypt/") }, null);
+		catch (ClassFormatError e)
+		{
+			System.out.println("������蝸�����掩");
+		}
+
+		DecodeClassLoader loader = new DecodeClassLoader(new URL[]
+		{ new URL("file:/" + path + "/encrypt/") }, null);
 		Class<?> clz = loader.loadClass(classname);
 		System.out.println(clz);
 		Object obj = clz.newInstance();
 		System.out.println(obj);
 	}
 
-	private static void encryptClass() throws IOException {
-		BufferedInputStream in = new BufferedInputStream(new FileInputStream(
-				new File("data/frank/java/chapter13/loader/Person.class")));
+	private static void encryptClass() throws IOException
+	{
+		BufferedInputStream in = new BufferedInputStream(
+				new FileInputStream(new File("data/frank/java/chapter13/loader/Person.class")));
 		BufferedOutputStream out = new BufferedOutputStream(
-				new FileOutputStream(new File(
-						"encrypt/frank/java/chapter13/loader/Person.class")));
+				new FileOutputStream(new File("encrypt/frank/java/chapter13/loader/Person.class")));
 
 		byte[] magic = "frank".getBytes();
 		out.write(magic);

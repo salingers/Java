@@ -9,7 +9,8 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
-public @interface Permission {
+public @interface Permission
+{
 
 	// 0000
 	// 0001 : Read
@@ -17,5 +18,5 @@ public @interface Permission {
 	// 0100 : Update
 	// 1000 : Deltete
 	int value();
-	
+
 }

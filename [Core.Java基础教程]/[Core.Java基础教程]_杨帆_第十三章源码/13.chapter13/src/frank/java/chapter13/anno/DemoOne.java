@@ -6,13 +6,16 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Annotation 声明范例
+ * Annotation 憯唳����
+ * 
  * @author <a href="mailto:gzyangfan@gmail.com">Frank</a>
  */
-// 声明注释的持久性
+// 憯唳�釣�������
 @Retention(RetentionPolicy.RUNTIME)
-// 声明注释的作用目标
-@Target({ElementType.TYPE, ElementType.METHOD})
-public @interface DemoOne {
+// 憯唳�釣��������
+@Target(
+{ ElementType.TYPE, ElementType.METHOD })
+public @interface DemoOne
+{
 
 }
