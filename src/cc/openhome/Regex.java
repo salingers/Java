@@ -11,15 +11,15 @@ public class Regex
 		Scanner console = new Scanner(System.in);
 		try
 		{
-			out.print("輸入規則表示式：");
+
 			String regex = console.nextLine();
-			out.print("輸入要比對的文字：");
+			
 			String text = console.nextLine();
 			print(match(regex, text));
 		}
 		catch (PatternSyntaxException ex)
 		{
-			out.println("規則表示式有誤");
+			out.println("閬�”蝷箏��炊");
 			out.println(ex.getMessage());
 		}
 	}
@@ -32,7 +32,7 @@ public class Regex
 		List<String> matched = new ArrayList<>();
 		while (matcher.find())
 		{
-			matched.add(String.format("從索引 %d 開始到索引 %d 之間找到符合文字 \"%s\"%n", matcher.start(), matcher.end(),
+			matched.add(String.format("敺揣撘� %d ���蝝Ｗ�� %d 銋��蝚血���� \"%s\"%n", matcher.start(), matcher.end(),
 					matcher.group()));
 		}
 		return matched;
@@ -42,7 +42,7 @@ public class Regex
 	{
 		if (matched.isEmpty())
 		{
-			out.println("找不到符合文字");
+			out.println("�銝蝚血����");
 		}
 		else
 		{
