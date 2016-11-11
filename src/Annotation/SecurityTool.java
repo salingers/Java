@@ -1,4 +1,4 @@
-package cc.openhome;
+package annotation;
 
 import static java.lang.System.out;
 

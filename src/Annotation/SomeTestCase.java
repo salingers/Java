@@ -1,4 +1,4 @@
-package cc.openhome;
+package annotation;
 
 @TestClass(
 { Some.class, Util.class })

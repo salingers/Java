@@ -1,5 +1,7 @@
-package cc.openhome;
+package annotation
 
 @Filter("/admin")
 @Filter("/manager")
-public interface SecurityFilter {}
+public interface SecurityFilter
+{
+}

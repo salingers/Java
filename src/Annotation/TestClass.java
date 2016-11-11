@@ -1,4 +1,4 @@
-package cc.openhome;
+package annotation;
 
 public @interface TestClass {
     Class[] value();

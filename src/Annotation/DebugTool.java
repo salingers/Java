@@ -1,4 +1,4 @@
-package Annotation;
+package annotation;
 
 import static java.lang.System.out;
 import java.lang.annotation.Annotation;
@@ -9,16 +9,16 @@ public class DebugTool {
         Class<Other> c = Other.class;
         Method method = c.getMethod("doOther");
         if(method.isAnnotationPresent(Debug.class)) {
-            out.println("æ’Œè„°èº«æ‘°ï¿½ @Debug ç’…î©–é…‰");
+            out.println("??Œè„°èº«æ‘°ï¿? @Debug ??…î?–é??");
             showDebugAnnotation(method);
         } else {
-            out.println("ç˜î˜‰ï¿½ï¦èº«æ‘°ï¿½ @Debug ç’…î©–é…‰");
+            out.println("??î?‰ï¿½?¦èº«æ‘°ï¿? @Debug ??…î?–é??");
         }
         showAllAnnotations(method);
     }
 
     private static void showDebugAnnotation(Method method) {
-        // ï¿½ï¿½î¡¼ï¿½ï¿½ @Debug æ’–è™«ï¿½ï¿½
+        // ï¿½ï¿½î¡¼ï¿½ï¿? @Debug ??–è™«ï¿½ï¿½
         Debug debug = method.getAnnotation(Debug.class);
         out.printf("value: %s%n", debug.value());
         out.printf("name : %s%n", debug.name());
