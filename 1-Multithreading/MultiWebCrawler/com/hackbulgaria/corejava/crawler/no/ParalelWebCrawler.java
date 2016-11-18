@@ -60,7 +60,7 @@ public class ParalelWebCrawler
 				if (!visitedUrls.contains(link))
 				{ // visitedUrls.add(currentLocation);
 					i.incrementAndGet();
-					
+
 					futures.add(service.submit(() ->
 					{
 						Set<URI> crawl = crawl(link, needle, i);

@@ -12,6 +12,7 @@ public class Main
 		Support fred = new LimitSupport("Fred", 300);
 		// 形成連鎖
 		alice.setNext(bob).setNext(charlie).setNext(diana).setNext(elmo).setNext(fred);
+		
 		// 發生各種問題
 		for (int i = 0; i < 500; i += 33)
 		{

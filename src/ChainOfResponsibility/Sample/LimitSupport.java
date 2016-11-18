@@ -2,7 +2,8 @@ package ChainOfResponsibility.Sample;
 
 public class LimitSupport extends Support
 {
-	private int limit; // 若小於此號碼則可解決問題
+	 // 若小於此號碼則可解決問題
+	private int limit;
 
 	public LimitSupport(String name, int limit)
 	{ // 建構子

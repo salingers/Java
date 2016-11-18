@@ -1,4 +1,4 @@
-package annotation
+package annotation;
 
 @Filter("/admin")
 @Filter("/manager")

@@ -1,7 +1,9 @@
 package annotation;
 
+import org.junit.Ignore;
+
 @TestClass(
-{ Some.class, Util.class })
+{ Util.class, Util.class })
 public class SomeTestCase
 {
 	@Test
